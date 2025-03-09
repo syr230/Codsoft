@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <!--let's add style in html file itself-->
+        <style>
+            h1{
+                col:#12395d;
+            }
+        body
+        {
+        flex-wrap: wrap;
+        justify-content: center;
+        }
+        button
+        {
+            width:50px;
+            height:60px;
+        }
+        td
+        {
+            width:20px;
+            padding:10px;
+            background-color:rgb(27, 135, 189);
+            text:black;
+        }
+        </style>
+    <!--here is java script code -->
+         <script lang="javascript">
+            var  v1=0,v2=0,v3=0,oper;
+                   function insert(b)
+                   {
+                       var x=document.getElementById('t1').value;
+                       if(x=="0")
+                       {
+                           document.getElementById('t1').value=b;
+                       }
+                       else
+                       {
+                           document.getElementById('t1').value+=b;
+                       }
+                   }
+                   function ce( )
+                   {
+                       document.getElementById('t1').value="0";
+                       v1=v2=v3=0;
+                   }
+                   function cal(op)
+                   {
+                       v1=parseInt(document.getElementById('t1').value);
+                       document.getElementById('t1').value="0";
+                       oper=op;
+                       
+                   }
+                   function res( )
+                   {
+                       v2=parseInt(document.getElementById('t1').value);
+                       switch(oper)
+                       {
+                           case '+':
+                                           v3=v1+v2;
+                                           break;
+                           case '-':
+                                           v3=v1-v2;
+                                           break;
+                           case '/':
+                                           v3=v1/v2;
+                                           break;
+                           case '*':
+                                           v3=v1*v2;
+                                           break;
+                       }
+                       document.getElementById('t1').value=v3;
+                   }
+               </script>
+    </head><!--closing head tag -->
+
+    <!--let's open body tag -->
+    <body bgcolor="skyblue" text="black">
+        <hr/>
+        <h1 align="center">Simple Calculator</h1>
+        <!--table tags -->
+        <table border=5 align=center>
+            <tr>
+                <td colspan=4><input type="text" value="0" id="t1"style="text-align:right;"</td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" id="b7" onclick="insert('7');"</td>
+                  <td><input type="button" value="8" id="b8" onclick="insert('8');"</td>
+                    <td><input type="button" value="9" id="b9" onclick="insert('9');"</td>
+                      <td><input type="button" value="C" id="bc" onclick="ce( );"</td>
+            </tr>
+            
+            <tr>
+                <td><input type="button" value="4" id="b4" onclick="insert('4');"</td>
+                  <td><input type="button" value="5" id="b5" onclick="insert('5');"</td>
+                    <td><input type="button" value="6" id="b6" onclick="insert('6');"</td>
+                      <td><input type="button" value="+" id="ba" onclick="cal('+');"</td>
+            </tr>
+            
+            <tr>
+                <td><input type="button" value="1" id="b1" onclick="insert('1');"</td>
+                  <td><input type="button" value="2" id="b2" onclick="insert('2');"</td>
+                    <td><input type="button" value="3" id="b3" onclick="insert('3');"</td>
+                      <td><input type="button" value="-" id="bs" onclick="cal('-');"</td>
+            </tr>
+            
+            <tr>
+                <td><input type="button" value="/" id="bd" onclick="cal('/');"</td>
+                  <td><input type="button" value="0" id="b0" onclick="insert('0');"</td>
+                    <td><input type="button" value="*" id="bm" onclick="cal('*');"</td>
+                      <td><input type="button" value="=" id="be" onclick="res( );"</td>
+            </tr>
+        </table>
+       
+    </body><!--closing body tag -->
+</html>
